@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: rag-app
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rag_db
+    username: postgres
+    password: Aadhya@2024
+
+  jpa:
+    hibernate:
+      ddl-auto: validate          # schema is owned by Flyway, never Hibernate
+    open-in-view: false
+    properties:
+      hibernate.jdbc.time_zone: UTC
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o-mini
+          temperature: 0.1        # low temp -> faithful, less creative answers
+      embedding:
+        options:
+          model: text-embedding-3-small   # 1536 dimensions
+    vectorstore:
+      pgvector:
+        initialize-schema: false  # schema created by Flyway V1 migration
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1536
+
+# Application-specific RAG tuning
+rag:
+  chunk-size: 800          # tokens per chunk
+  top-k: 5                 # chunks retrieved per query
+  similarity-threshold: 0.55
+  allowed-content-types:
+    - application/pdf
+    - text/plain
+    - text/markdown
+    - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.example.rag: DEBUG
+    org.springframework.ai: INFO
