@@ -1,9 +1,9 @@
 spring:
   application:
-    name: rag-app
+    name: agentic-ai-rag-pgverctor
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/rag_db
+    url: jdbc:postgresql://localhost:5432/my_vector_db
     username: postgres
     password: Aadhya@2024
 
