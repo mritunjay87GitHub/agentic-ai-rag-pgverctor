@@ -68,3 +68,7 @@ logging:
   level:
     com.example.rag: DEBUG
     org.springframework.ai: INFO
+
+server:
+  servlet:
+    context-path: /rag-app

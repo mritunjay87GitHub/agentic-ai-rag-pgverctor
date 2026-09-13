@@ -28,5 +28,10 @@ public class DocumentController {
         IngestResponse response = ingestionService.ingest(file);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
+    @GetMapping("/ping")
+    public ResponseEntity<String> pingApps() {
+        return ResponseEntity.status(HttpStatus.OK).body("App is up and running");
+    }
 }
 

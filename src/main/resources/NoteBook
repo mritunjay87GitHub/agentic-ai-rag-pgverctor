@@ -93,6 +93,12 @@ VALUES
 
     SHOW data_directory;
 
+    View all databases list
+    #> \l
+
+    view all tables list
+   #> \c my_vector_db
+
     ----------------
 
     https://github.com/andreiramani/pgvector_pgsql_windows/releases?utm_source=chatgpt.com

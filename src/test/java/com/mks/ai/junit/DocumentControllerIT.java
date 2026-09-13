@@ -7,7 +7,6 @@ import com.mks.ai.restapi.DocumentController;
 import com.mks.ai.service.IngestionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -21,7 +20,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(DocumentController.class)
+//@WebMvcTest(DocumentController.class)
 class DocumentControllerIT {
 
     @Autowired MockMvc mockMvc;
