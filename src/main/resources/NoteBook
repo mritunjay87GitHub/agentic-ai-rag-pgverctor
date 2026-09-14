@@ -145,3 +145,21 @@ VALUES
 
     C:\Program Files\PostgreSQL\16\share\extension\
 
+<<<<<<< Updated upstream
+=======
+    --------------------------------------------------------------------
+
+    postman request POST 'http://localhost:8080/rag-app/api/v1/chat' \
+      --header 'Content-Type: application/json' \
+      --body '{
+        "question" : "Java Version"
+    }'
+
+
+postman request POST 'http://localhost:8080/rag-app/api/v1/documents' 'file=@"/C:/MKS_STORAGE_DRIVE/MY_DOC/RESUME/PreviousResume/Mritunjay_14.5_Years_Exp_FullStack_Developer.pdf"'
+
+Resolved Secret Leak Issue in GitHub Push Protection
+ https://docs.github.com/en/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-on-the-command-line#resolving-a-blocked-push
+
+#>  git log
+
